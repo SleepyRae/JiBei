@@ -1,7 +1,8 @@
-package com.example.inspiron.jibei;
+package com.example.inspiron.jibei.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.inspiron.jibei.R;
 
 public class MainActivity extends AppCompatActivity {
 
