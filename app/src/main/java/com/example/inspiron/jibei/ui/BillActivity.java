@@ -1,48 +1,60 @@
 package com.example.inspiron.jibei.ui;
 
 
+import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.SparseArray;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import com.example.inspiron.jibei.BlankFragment;
 import com.example.inspiron.jibei.R;
+
+import java.lang.reflect.Array;
 
 
 public class BillActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    return true;
-                case R.id.navigation_dashboard:
-                    return true;
-                case R.id.navigation_notifications:
-                    return true;
-                case R.id.navigation_person:
-                    return true;
-            }
-            return false;
-        }
-    };
+    private RadioGroup mTabRadioGroup;
+    private SparseArray<Fragment> mFragmentSparseArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bill);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-
+        initView();
     }
 
+        private void initView() {
+            mTabRadioGroup = findViewById(R.id.tabs_rg);
+            mFragmentSparseArray = new SparseArray<>();
+            mFragmentSparseArray.append(R.id.today_tab, BlankFragment.newInstance("账单"));
+            mFragmentSparseArray.append(R.id.record_tab, BlankFragment.newInstance("报表"));
+            mFragmentSparseArray.append(R.id.contact_tab, BlankFragment.newInstance("账本"));
+            mFragmentSparseArray.append(R.id.settings_tab, BlankFragment.newInstance("我的"));
+            mTabRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    // 具体的fragment切换逻辑可以根据应用调整，例如使用show()/hide()
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            mFragmentSparseArray.get(checkedId)).commit();
+                }
+            });
+            // 默认显示第一个
+            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,
+                    mFragmentSparseArray.get(R.id.today_tab)).commit();
+            findViewById(R.id.sign_iv).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+            //        startActivity(new Intent(BillActivity.this, SignActivity.class));
+                }
+            });
+        }
 
 }
