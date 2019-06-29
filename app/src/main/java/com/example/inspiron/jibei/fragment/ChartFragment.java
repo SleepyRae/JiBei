@@ -14,7 +14,7 @@ import com.example.inspiron.jibei.R;
 public class ChartFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View chartF= inflater.inflate(R.layout.fragment_bill,container,false);
+        View chartF= inflater.inflate(R.layout.fragment_chart,container,false);
 
         FontHelper.injectFont(chartF.findViewById(R.id.rootView));
 

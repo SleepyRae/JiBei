@@ -155,4 +155,10 @@
     <color name="press">#8fbbaf</color>
     <color name="pressDefault">#acdeaa</color>
 
+    <color name="mainBlack">#ffffff</color>
+    <color name="contentItemBlue">#ffffff</color>
+    <color name="titleItemGrey">#f8f8f8</color>
+    <color name="selectedRed">#e20224</color>
+    <color name="selectedRedPress">#b4031e</color>
+
 </resources>
