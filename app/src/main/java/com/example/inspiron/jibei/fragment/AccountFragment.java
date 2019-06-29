@@ -8,12 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.inspiron.jibei.FontHelper;
 import com.example.inspiron.jibei.R;
 
  public class AccountFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_account,container,false);
-        return view;
+        View accountF= inflater.inflate(R.layout.fragment_account,container,false);
+
+        FontHelper.injectFont(accountF.findViewById(R.id.rootView));
+
+        return accountF;
     }
 }

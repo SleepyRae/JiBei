@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.TextView;
+import com.example.inspiron.jibei.FontHelper;
 import com.example.inspiron.jibei.R;
 
 import java.util.ArrayList;
@@ -29,7 +30,11 @@ public class BillFragment extends Fragment {
 
      @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_bill,container,false);
-        return view;
+        View billF= inflater.inflate(R.layout.fragment_bill,container,false);
+
+        FontHelper.injectFont(billF.findViewById(R.id.rootView));
+
+
+         return billF;
     }
 }

@@ -119,7 +119,10 @@
 
         <LinearLayout style="@style/page_content_horizontal"
                       android:layout_weight="8">
-
+            <se.emilsjolander.stickylistheaders.StickyListHeadersListView
+                    android:id="@+id/stickyListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
         </LinearLayout>
 

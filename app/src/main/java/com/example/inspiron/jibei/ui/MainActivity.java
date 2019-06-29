@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import com.example.inspiron.jibei.FontHelper;
 import com.example.inspiron.jibei.R;
 import com.example.inspiron.jibei.fragment.AccountFragment;
 import com.example.inspiron.jibei.fragment.BillFragment;
@@ -44,6 +45,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         initView();
         //调用布局替换方法进入默认加载第一个Fragment布局页面
         frag(fr1);
+
     }
     //替换页面方法
     private void frag(Fragment f) {

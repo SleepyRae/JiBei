@@ -24,13 +24,15 @@
                 style="@style/Custom.TabRadioButton"
                 android:checked="true"
                 android:drawableTop="@drawable/ic_home_black_24dp"
-                android:text="账单" />
+                android:text="账单"
+                android:textStyle="bold"/>
 
         <RadioButton
                 android:id="@+id/record_tab"
                 style="@style/Custom.TabRadioButton"
                 android:drawableTop="@drawable/ic_home_black_24dp"
-                android:text="报表" />
+                android:text="报表"
+                android:textStyle="bold"/>
 
         <View style="@style/Custom.TabRadioButton" />
 
@@ -38,13 +40,15 @@
                 android:id="@+id/contact_tab"
                 style="@style/Custom.TabRadioButton"
                 android:drawableTop="@drawable/ic_home_black_24dp"
-                android:text="账本" />
+                android:text="账本"
+                android:textStyle="bold"/>
 
         <RadioButton
                 android:id="@+id/settings_tab"
                 style="@style/Custom.TabRadioButton"
                 android:drawableTop="@drawable/ic_home_black_24dp"
-                android:text="我的" />
+                android:text="我的"
+                android:textStyle="bold"/>
     </RadioGroup>
 
     <ImageView
