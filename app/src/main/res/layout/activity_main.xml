@@ -23,14 +23,14 @@
                 android:id="@+id/today_tab"
                 style="@style/Custom.TabRadioButton"
                 android:checked="true"
-                android:drawableTop="@drawable/ic_home_black_24dp"
-                android:text="账单"
+                android:drawableTop="@drawable/bill_select"
+                android:text="账目"
                 android:textStyle="bold"/>
 
         <RadioButton
                 android:id="@+id/record_tab"
                 style="@style/Custom.TabRadioButton"
-                android:drawableTop="@drawable/ic_home_black_24dp"
+                android:drawableTop="@drawable/chart_select"
                 android:text="报表"
                 android:textStyle="bold"/>
 
@@ -39,14 +39,14 @@
         <RadioButton
                 android:id="@+id/contact_tab"
                 style="@style/Custom.TabRadioButton"
-                android:drawableTop="@drawable/ic_home_black_24dp"
+                android:drawableTop="@drawable/account_select"
                 android:text="账本"
                 android:textStyle="bold"/>
 
         <RadioButton
                 android:id="@+id/settings_tab"
                 style="@style/Custom.TabRadioButton"
-                android:drawableTop="@drawable/ic_home_black_24dp"
+                android:drawableTop="@drawable/person_select"
                 android:text="我的"
                 android:textStyle="bold"/>
     </RadioGroup>
@@ -58,6 +58,6 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="@android:color/transparent"
-            android:src="@mipmap/ic_launcher_round"/>
+            android:src="@drawable/add"/>
 
 </RelativeLayout>

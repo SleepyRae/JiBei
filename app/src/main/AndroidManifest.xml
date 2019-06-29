@@ -18,15 +18,20 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.AddBillActivity">
+        <activity android:name=".ui.AddBillActivity"
+                  android:label="记一笔">
         </activity>
-        <activity android:name=".ui.BillBudgetSetting">
+        <activity android:name=".ui.BillBudgetSetting"
+                  android:label="预算设置">
         </activity>
-        <activity android:name=".ui.BillNoting">
+        <activity android:name=".ui.BillNoting"
+                  android:label="记账提醒">
         </activity>
-        <activity android:name=".ui.ConnectUsActivity">
+        <activity android:name=".ui.ConnectUsActivity"
+                  android:label="联系我们">
         </activity>
-        <activity android:name=".ui.InfoActivity">
+        <activity android:name=".ui.InfoActivity"
+                  android:label="帮助反馈">
         </activity>
     </application>
 
