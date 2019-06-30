@@ -10,11 +10,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import com.example.inspiron.jibei.FontHelper;
 import com.example.inspiron.jibei.R;
-import com.example.inspiron.jibei.fragment.AccountFragment;
-import com.example.inspiron.jibei.fragment.BillFragment;
 import com.example.inspiron.jibei.fragment.ChartFragment;
+import com.example.inspiron.jibei.fragment.BillFragment;
+import com.example.inspiron.jibei.fragment.AccountFragment;
 import com.example.inspiron.jibei.fragment.MyFragment;
 
 
@@ -28,8 +27,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private RadioButton rb4;
     private RadioGroup rg;
     private BillFragment fr1;
-    private ChartFragment fr2;
-    private AccountFragment fr3;
+    private AccountFragment fr2;
+    private ChartFragment fr3;
     private MyFragment fr4;
     private ImageView add_img;
 
@@ -38,8 +37,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fr1 = new BillFragment();
-        fr2 = new ChartFragment();
-        fr3 = new AccountFragment();
+        fr2 = new AccountFragment();
+        fr3 = new ChartFragment();
         fr4 = new MyFragment();
         //调用查找控件方法
         initView();
@@ -57,13 +56,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     //查找控件方法
     private void initView() {
         fra = (FrameLayout) findViewById(R.id.fragment_container);
-        rb1 = (RadioButton) findViewById(R.id.today_tab);
+        rb1 = (RadioButton) findViewById(R.id.bill_tab);
         rb1.setOnClickListener(this);
-        rb2 = (RadioButton) findViewById(R.id.record_tab);
+        rb2 = (RadioButton) findViewById(R.id.account_tab);
         rb2.setOnClickListener(this);
-        rb3 = (RadioButton) findViewById(R.id.contact_tab);
+        rb3 = (RadioButton) findViewById(R.id.chart_tab);
         rb3.setOnClickListener(this);
-        rb4 = (RadioButton) findViewById(R.id.settings_tab);
+        rb4 = (RadioButton) findViewById(R.id.my_tab);
         rb4.setOnClickListener(this);
         add_img=(ImageView) findViewById(R.id.add_img);
         add_img.setOnClickListener(this);
@@ -75,16 +74,16 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         switch (v.getId()) {
             default:
                 break;
-            case R.id.today_tab:
+            case R.id.bill_tab:
                 frag(fr1);
                 break;
-            case R.id.record_tab:
+            case R.id.account_tab:
                 frag(fr2);
                 break;
-            case R.id.contact_tab:
+            case R.id.chart_tab:
                 frag(fr3);
                 break;
-            case R.id.settings_tab:
+            case R.id.my_tab:
                 frag(fr4);
                 break;
             case R.id.add_img:

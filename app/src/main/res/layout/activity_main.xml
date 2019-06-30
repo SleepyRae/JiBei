@@ -20,7 +20,7 @@
             android:orientation="horizontal">
 
         <RadioButton
-                android:id="@+id/today_tab"
+                android:id="@+id/bill_tab"
                 style="@style/Custom.TabRadioButton"
                 android:checked="true"
                 android:drawableTop="@drawable/bill_select"
@@ -28,23 +28,23 @@
                 android:textStyle="bold"/>
 
         <RadioButton
-                android:id="@+id/record_tab"
-                style="@style/Custom.TabRadioButton"
-                android:drawableTop="@drawable/chart_select"
-                android:text="报表"
-                android:textStyle="bold"/>
-
-        <View style="@style/Custom.TabRadioButton" />
-
-        <RadioButton
-                android:id="@+id/contact_tab"
+                android:id="@+id/account_tab"
                 style="@style/Custom.TabRadioButton"
                 android:drawableTop="@drawable/account_select"
                 android:text="账本"
                 android:textStyle="bold"/>
 
+        <View style="@style/Custom.TabRadioButton" />
+
         <RadioButton
-                android:id="@+id/settings_tab"
+                android:id="@+id/chart_tab"
+                style="@style/Custom.TabRadioButton"
+                android:drawableTop="@drawable/chart_select"
+                android:text="报表"
+                android:textStyle="bold"/>
+
+        <RadioButton
+                android:id="@+id/my_tab"
                 style="@style/Custom.TabRadioButton"
                 android:drawableTop="@drawable/person_select"
                 android:text="我的"
