@@ -1,258 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:id="@+id/rootView"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <LinearLayout
-            android:id="@+id/tool_bar"
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.7">
+            android:layout_height="?attr/actionBarSize"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_collapseMode="pin">
 
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-        <RadioGroup
-                android:id="@+id/chart_page_payment"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="horizontal">
-
-            <RadioButton
-                    android:id="@+id/spending"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/radio_button_underline"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:text="支出"
-                    android:textSize="18sp" />
-
-            <RadioButton
-                    android:id="@+id/incoming"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/radio_button_underline"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:text="收入"
-                    android:textSize="18sp" />
-
-        </RadioGroup>
-
-        <TextView
-                android:id="@+id/show_calendar"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-    </LinearLayout>
-
-    <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/lightgray" />
-
-    <LinearLayout
-            android:id="@+id/scrollView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="15dp"
-            android:layout_weight="8"
-            android:fillViewport="true"
-            android:orientation="vertical">
-
-        <LinearLayout
+        <include
+                android:id="@+id/toolbar_content"
+                layout="@layout/layout_toolbar_card"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent"/>
+    </android.support.v7.widget.Toolbar>
 
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+    <LinearLayout
+            android:id="@+id/ll_add_deposit"
+            android:layout_width="match_parent"
+            android:layout_height="111dp"
+            android:background="@drawable/lin_dash_bg"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:gravity="center">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:src="@drawable/add_account"
+                />
 
-                <LinearLayout
-                        android:id="@+id/date_bar"
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_weight="0.7">
-
-                    <RadioGroup
-                            android:id="@+id/chart_page_date_bar"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:orientation="horizontal">
-
-                        <RadioButton
-                                android:id="@+id/chart_date_month"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center|center_vertical"
-                                android:layout_weight="1"
-                                android:background="@drawable/radio_button"
-                                android:button="@null"
-                                android:gravity="center_vertical|center"
-                                android:text="月"
-                                android:textColor="@drawable/radio_button_color"
-                                android:textSize="15sp" />
-
-                        <RadioButton
-                                android:id="@+id/chart_date_all"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center|center_vertical"
-                                android:layout_weight="1"
-                                android:background="@drawable/radio_button"
-                                android:button="@null"
-                                android:gravity="center_vertical|center"
-                                android:text="总"
-                                android:textColor="@drawable/radio_button_color"
-                                android:textSize="15sp" />
-
-                    </RadioGroup>
-
-                </LinearLayout>
-
-                <LinearLayout
-                        android:id="@+id/chart_page_main"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_weight="5"
-                        android:orientation="vertical">
-
-                    <LinearLayout
-                            android:id="@+id/total_layout"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="3.2"
-                            android:orientation="vertical">
-
-                        <TextView
-                                android:id="@+id/total_spend_inst"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_weight="1.2"
-                                android:text="12/17-12/10, 支出总额" />
-
-                        <TextView
-                                android:id="@+id/total_spend_number"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_weight="5"
-                                android:gravity="center|center"
-                                android:text="0.00元"
-                                android:textSize="32sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                            android:id="@+id/total_count_max_layout"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1.8">
-
-                        <FrameLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1">
-
-                            <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="center|center"
-                                    android:layout_marginTop="8dp"
-                                    android:text="累计记账" />
-
-                            <TextView
-                                    android:id="@+id/total_count"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom|center"
-                                    android:layout_marginBottom="7dp"
-                                    android:text="0笔"
-                                    android:textSize="16sp" />
-
-                        </FrameLayout>
-
-                        <FrameLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1">
-
-                            <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="center|center"
-                                    android:layout_marginTop="8dp"
-                                    android:text="单笔最大金额" />
-
-                            <TextView
-                                    android:id="@+id/total_max"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom|center"
-                                    android:layout_marginBottom="7dp"
-                                    android:text="0.00元" />
-                        </FrameLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.7"
-                    android:orientation="vertical">
-
-                <android.support.v7.widget.RecyclerView
-                        android:id="@+id/listBar"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_weight="4"
-                        android:background="@color/white" />
-
-                <TextView
-                        android:id="@+id/total_list_inst"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@color/lightgray"
-                        android:gravity="center_vertical"
-                        android:text="支出排行榜" />
-
-                <android.support.v7.widget.RecyclerView
-                        android:id="@+id/recycleView"
-                        android:layout_weight="2.5"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textSize="13sp"
+                android:textColor="@color/gray"
+                android:text="添加账本"/>
     </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <!--<include layout="@layout/item_card_add"/>-->
 
 </LinearLayout>

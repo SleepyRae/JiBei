@@ -161,4 +161,6 @@
     <color name="selectedRed">#e20224</color>
     <color name="selectedRedPress">#b4031e</color>
 
+    <color name="color_dash">#cecece</color>
+
 </resources>

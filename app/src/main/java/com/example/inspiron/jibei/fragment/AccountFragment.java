@@ -1,93 +1,75 @@
 package com.example.inspiron.jibei.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import com.example.inspiron.jibei.Extra;
 import com.example.inspiron.jibei.FontHelper;
 import com.example.inspiron.jibei.R;
 
-public class AccountFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
 
-    private View ChartPage;
-    private RadioGroup chart_page_payment;
-    private RadioGroup chart_page_date_bar;
-    private TextView total_spend_inst,total_spend_number,total_list_inst;
-    private TextView total_count,total_max;
-    private RecyclerView listBar;
-    private RecyclerView listView;
+import butterknife.BindView;
+import butterknife.OnClick;
+import com.example.inspiron.jibei.adapter.AccountAdapter;
+import com.example.inspiron.jibei.adapter.BaseRecycleAdapter;
+import com.example.inspiron.jibei.bean.AccountBean;
+import com.example.inspiron.jibei.ui.AccountAddActivity;
+import com.github.mikephil.charting.charts.PieChart;
+import mehdi.sakout.fancybuttons.FancyButton;
 
-    private LinearLayoutManager linearLayoutManager1;
-    private LinearLayoutManager linearLayoutManager2;
+public class AccountFragment extends Fragment implements View.OnClickListener{
 
-    //初始化 当前选中的item， 默认支出 月份类别
-    private int currentPosition=0;
-    private Boolean currentPayment=false;
-    //  2 月 3 总
-    private int currentDateType=2;
+    private View AccountPage;
+    private LinearLayout add_account;
 
-   /* private List<BillItem> billItems=new ArrayList<>();
-    private List<BillItemForChart> billItemForChartList=new ArrayList<>();
-    private List<BillItem> billItemsTemp=new ArrayList<>();
-    private List<CountAndMoney> countAndMoneyList=new ArrayList<>();
-    private BillItemForChart billItemForChart;
-    private ChartListAdapter chartListAdapter;
-    private String MonAndYear;
+    @BindView(R.id.ll_add_deposit)
+    LinearLayout mLlAddDeposit;
 
-    private BillItemForChartAdapter billItemForChartAdapter;*/
-
-
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ChartPage= inflater.inflate(R.layout.fragment_account,container,false);
+    public View onCreateView(@Nullable LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        AccountPage= inflater.inflate(R.layout.fragment_account,container,false);
+        FontHelper.injectFont(AccountPage.findViewById(R.id.rootView));
 
-        /*billItems=DataSupport.select().where("user_id = ?", MainActivity.getUserLogining()).order("create_date").find(BillItem.class);
-
-        if(billItems.size()!=0){
+        /*billItemList = DataSupport.where("user_id = ?", MainActivity.getUserLogining()).order("create_date").find(BillItem.class);
+        if(billItemList.size()!=0){
             init();
-
-            linearLayoutManager1=new LinearLayoutManager(getActivity());
-            linearLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
-            listBar.setLayoutManager(linearLayoutManager1);
-            billItemForChartAdapter=new BillItemForChartAdapter(billItemForChartList);
-            listBar.setAdapter(billItemForChartAdapter);
-
             initListener();
         }*/
 
         init();
 
-        return ChartPage;
+        return AccountPage;
     }
 
-    public void  init(){
-        chart_page_payment=(RadioGroup)ChartPage.findViewById(R.id.chart_page_payment);
-        chart_page_date_bar=(RadioGroup)ChartPage.findViewById(R.id.chart_page_date_bar);
-        total_spend_inst=(TextView)ChartPage.findViewById(R.id.total_spend_inst);
-        total_spend_number=(TextView)ChartPage.findViewById(R.id.total_spend_number);
-        total_list_inst=(TextView)ChartPage.findViewById(R.id.total_list_inst);
-        total_count=(TextView)ChartPage.findViewById(R.id.total_count);
-        total_max=(TextView)ChartPage.findViewById(R.id.total_max);
-        listBar=(RecyclerView)ChartPage.findViewById(R.id.listBar);
-        listView=(RecyclerView)ChartPage.findViewById(R.id.recycleView);
+    public void init() {
+        add_account = (LinearLayout) AccountPage.findViewById(R.id.ll_add_deposit);
+        add_account.setOnClickListener(this);
 
-        chart_page_payment.check(R.id.spending);
-        chart_page_date_bar.check(R.id.chart_date_month);
+    }
 
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.ll_add_deposit:
+                startActivity(new Intent(getActivity(), AccountAddActivity.class));
+                break;
 
-        FontHelper.injectFont(ChartPage.findViewById(R.id.rootView));
-
-        /*billItems=DataSupport.select().where("user_id = ?",MainActivity.getUserLogining()).order("create_date").find(BillItem.class);
-        if(billItems.size()!=0){
-            defaultPageChartList();
-            changeListByPosition(currentPosition);
-        }*/
+            default:
+                break;
+        }
     }
 
 }

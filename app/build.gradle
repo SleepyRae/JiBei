@@ -34,6 +34,11 @@ dependencies {
     implementation 'com.github.medyo:fancybuttons:1.9.1'
 
     implementation "com.hanks:htextview-base:0.1.6"
+    compile 'com.jakewharton:butterknife:8.8.0'
+    //添加这一句，不然会报错
+    compile 'org.greenrobot:eventbus:3.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.0'
+
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
