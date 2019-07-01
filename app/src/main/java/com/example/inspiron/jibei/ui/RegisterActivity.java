@@ -17,6 +17,9 @@ public class RegisterActivity extends AppCompatActivity {
     private Button register;
     private TextView gotoLogin;
 
+    //用户名 密码 确认密码 字符串
+    private String userns,pws,cpws;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,8 +59,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void comparePassword(EditText pw, EditText cpw){
-        String pws=pw.getText().toString();
-        String cpws=cpw.getText().toString();
+        pws=pw.getText().toString();
+        cpws=cpw.getText().toString();
 
         if (pws.equals("")||cpws.equals("")){	//判断两次密码是否为空
             if(Looper.myLooper() == null)
