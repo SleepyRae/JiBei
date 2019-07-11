@@ -3,7 +3,7 @@
     <dbname value="BillStore"></dbname>
     <version value="7"></version>
     <list>
-        <mapping class="cn.edu.hznu.cuckoobill.Model.BillItem"></mapping>
-        <mapping class="cn.edu.hznu.cuckoobill.Model.User"></mapping>
+        <mapping class="com.example.inspiron.jibei.model.BillItem"></mapping>
+        <mapping class="com.example.inspiron.jibei.model.User"></mapping>
     </list>
 </litepal>

@@ -2,19 +2,24 @@ package com.example.inspiron.jibei.ui;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import com.example.inspiron.jibei.FontHelper;
 import com.example.inspiron.jibei.R;
 import com.example.inspiron.jibei.fragment.ChartFragment;
 import com.example.inspiron.jibei.fragment.BillFragment;
 import com.example.inspiron.jibei.fragment.AccountFragment;
 import com.example.inspiron.jibei.fragment.MyFragment;
+
+import java.util.Date;
 
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener{
@@ -32,10 +37,21 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private MyFragment fr4;
     private ImageView add_img;
 
+    public static String UserLogining="15990184787";
+    public static Date LoginDate=new Date(Date.parse("10/19/2018"));
+    private FragmentTransaction fragmentTransaction;
+    private SharedPreferences pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        pref=getSharedPreferences("User",MODE_PRIVATE);
+        UserLogining=pref.getString("LoginUser","15990184787");
+
+        FontHelper.injectFont(findViewById(R.id.rootView));
+
         fr1 = new BillFragment();
         fr2 = new AccountFragment();
         fr3 = new ChartFragment();
@@ -55,6 +71,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
     //查找控件方法
     private void initView() {
+
         fra = (FrameLayout) findViewById(R.id.fragment_container);
         rb1 = (RadioButton) findViewById(R.id.bill_tab);
         rb1.setOnClickListener(this);
@@ -68,6 +85,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         add_img.setOnClickListener(this);
         rg = (RadioGroup) findViewById(R.id.tabs_rg);
     }
+
     //自动生成的点击事件
     @Override
     public void onClick(View v) {
@@ -89,6 +107,14 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.add_img:
                 startActivity(new Intent(MainActivity.this, AddBillActivity.class));
         }
+    }
+
+
+    public static String getUserLogining(){
+        return UserLogining;
+    }
+    public static Date getLoginDate(){
+        return LoginDate;
     }
 
 }
