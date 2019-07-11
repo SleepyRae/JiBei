@@ -162,5 +162,7 @@
     <color name="selectedRedPress">#b4031e</color>
 
     <color name="color_dash">#cecece</color>
+    <color name="colorGrey">#f9f9f9</color>
+    <color name="littlepink">#ffc0c2</color>
 
 </resources>
