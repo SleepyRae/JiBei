@@ -21,10 +21,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.inspiron.jibei.R;
-import com.example.inspiron.jibei.ui.BillBudgetSetting;
-import com.example.inspiron.jibei.ui.BillNoting;
-import com.example.inspiron.jibei.ui.ConnectUsActivity;
-import com.example.inspiron.jibei.ui.InfoActivity;
+import com.example.inspiron.jibei.ui.*;
 import jp.wasabeef.glide.transformations.BlurTransformation;
 import mehdi.sakout.fancybuttons.FancyButton;
 
@@ -113,10 +110,10 @@ public class MyFragment extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(getActivity(), BillBudgetSetting.class));
                 break;
             case R.id.sign_out:
-                /*SharedPreferences.Editor editor=getActivity().getSharedPreferences("User",MODE_PRIVATE).edit();
+                SharedPreferences.Editor editor=getActivity().getSharedPreferences("User",MODE_PRIVATE).edit();
                 editor.putBoolean("isLogin",false);
                 editor.apply();
-                startActivity(new Intent(getActivity(),LoginActivity.class));*/
+                startActivity(new Intent(getActivity(), LoginActivity.class));
                 getActivity().finish();
                 break;
             case R.id.connect_us:

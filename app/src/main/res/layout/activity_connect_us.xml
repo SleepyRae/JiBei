@@ -1,10 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.ConnectUsActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:id="@+id/rootView"
+              tools:context=".ui.BillNoting">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="45dp"
+                  android:background="@color/darkslategrey">
+        <TextView android:id="@+id/cancle_button1"
+                  android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:layout_height="match_parent"
+                  android:gravity="center_vertical|center"
+                  android:clickable="true"
+                  style="@style/toolbar"
+                  android:textSize="24sp"
+                  android:text="&#xf104;"/>
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:text="联系我们"
+                style="@style/toolbar"
+                android:gravity="center|center_vertical"/>
+        <TextView
+                android:id="@+id/not_deter"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                style="@style/toolbar"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center"
+                android:textSize="20sp"
+                android:clickable="true"
+                />
+    </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+            android:text="热点问题"
+            android:textSize="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:textStyle="bold"
+            />
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#1000" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FCFAFA"
+            android:text=" 如何创建账本？"
+            android:textSize="16dp"
+            android:clickable="true"
+            android:id="@+id/question1"
+            android:padding="16dp"
+            />
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#1000" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FCFAFA"
+            android:text=" 如何创建账单？"
+            android:textSize="16dp"
+            android:clickable="true"
+            android:id="@+id/question2"
+            android:padding="16dp"
+            />
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#1000" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FCFAFA"
+            android:text=" 如何生成报表？"
+            android:textSize="16dp"
+            android:clickable="true"
+            android:id="@+id/question3"
+            android:padding="16dp"
+
+            />
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#1000" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FCFAFA"
+            android:text=" 如何联系客服？"
+            android:textSize="16dp"
+            android:clickable="true"
+            android:id="@+id/question4"
+            android:padding="16dp"
+
+            />
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#1000" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FCFAFA"
+            android:text=" 如何反馈意见？"
+            android:textSize="16dp"
+            android:clickable="true"
+            android:id="@+id/question5"
+            android:padding="16dp"
+
+            />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1000" />
+
+    <View android:layout_width="match_parent" android:layout_height="18dp" />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contact"
+            android:textSize="16dp"
+            android:padding="16dp"
+            />
+</LinearLayout>
