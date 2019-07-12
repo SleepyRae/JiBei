@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/person_seleted" android:state_checked="true"/>
-    <item android:drawable="@drawable/person_unseleted" />
+    <item android:drawable="@drawable/personseleted1" android:state_checked="true"/>
+    <item android:drawable="@drawable/personunseleted1" />
 </selector>

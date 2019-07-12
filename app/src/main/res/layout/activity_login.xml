@@ -30,7 +30,7 @@
                 android:text="记呗"
                 android:textSize="32sp"
                 android:textStyle="bold"
-                android:textColor="@color/darkslategrey"
+                android:textColor="@color/whitesmoke"
                 android:gravity="center_vertical"
                 />
 

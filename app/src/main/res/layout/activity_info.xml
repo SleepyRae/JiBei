@@ -11,7 +11,7 @@
               tools:context=".ui.BillNoting">
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="45dp"
-                  android:background="@color/darkslategrey">
+                  android:background="@color/colorPrimary">
         <TextView android:id="@+id/cancle_button2"
                   android:layout_width="0dp"
                   android:layout_weight="1"
@@ -106,7 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:text="提交"
-                fancy:fb_defaultColor="@color/darkslategrey"
+                fancy:fb_defaultColor="@color/colorPrimary"
                 fancy:fb_focusColor="@color/darkgrey"
                 fancy:fb_iconPosition="left"
                 fancy:fb_textSize="18dp"
