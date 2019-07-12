@@ -170,8 +170,8 @@ public class BillItemAdapter extends BaseAdapter implements StickyListHeadersAda
 
         if(!billItemChoice.isPayment_type()){
             switch (moneyType){
-                case "零食":
-                    viewHolder.billOitemMoneyType.setText("零食");
+                case "吃喝":
+                    viewHolder.billOitemMoneyType.setText("吃喝");
                     break;
                 case "娱乐":
                     viewHolder.billOitemMoneyType.setText("娱乐");
