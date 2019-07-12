@@ -53,7 +53,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         FontHelper.injectFont(findViewById(R.id.rootView));
 
         fr1 = new BillFragment();
-        fr2 = new AccountFragment();
+        fr2 = new AccountFragment(MainActivity.this);
         fr3 = new ChartFragment();
         fr4 = new MyFragment();
         //调用查找控件方法

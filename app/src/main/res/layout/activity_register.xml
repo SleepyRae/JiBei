@@ -6,7 +6,8 @@
               android:layout_height="match_parent"
               tools:context=".ui.RegisterActivity"
               android:orientation="vertical"
-              android:gravity="center_horizontal">
+              android:gravity="center_horizontal"
+    android:background="@color/colorPrimary">
 
 
     <LinearLayout
@@ -67,8 +68,9 @@
                 android:maxLength="15"
                 android:selectAllOnFocus="true"
                 android:textSize="14sp"
-                android:textColorHint="#797070"
-                android:background="@null"/>
+                android:textColorHint="@color/white"
+                android:background="@null"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -96,8 +98,9 @@
                 android:maxLength="15"
                 android:selectAllOnFocus="true"
                 android:textSize="14sp"
-                android:textColorHint="#797070"
-                android:background="@null"/>
+                android:textColorHint="@color/white"
+                android:background="@null"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -127,7 +130,8 @@
                 android:maxLength="15"
                 android:selectAllOnFocus="true"
                 android:textSize="14sp"
-                android:textColorHint="#797070"
+                android:textColorHint="@color/white"
+            android:textColor="@color/white"
                 android:background="@null"/>
 
     </LinearLayout>

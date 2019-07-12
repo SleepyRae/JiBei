@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="111dp"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:background="@drawable/lin_card_bg_green"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:clickable="true"
-                android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="111dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/lin_card_bg_green"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:clickable="true"
+    android:orientation="vertical">
 
     <ImageView
-            android:id="@+id/iv_bandcard"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/account_icon"
-            />
+        android:id="@+id/iv_bandcard"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/account_icon"
+        />
 
     <TextView
-            android:id="@+id/tv_bandcard_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="默认账本"
-            android:textColor="@color/white"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="17dp"
-            android:layout_alignStart="@+id/tv_bandcard_id"/>
+        android:id="@+id/tv_account_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="默认账本"
+        android:textColor="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="17dp"
+        android:layout_alignStart="@+id/tv_bandcard_id"/>
     <TextView
         android:id="@+id/tv_bandcard_type"
         android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
         android:textColor="@color/white"
         android:layout_toRightOf="@+id/iv_bandcard"
         android:layout_toEndOf="@+id/iv_bandcard"
-        android:layout_below="@id/tv_bandcard_name"
+        android:layout_below="@id/tv_account_name"
         android:layout_marginLeft="15dp"/>
 
 
@@ -55,6 +55,20 @@
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="15dp"/>
 
+    <TextView
+        android:id="@+id/tv_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.00"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        />
+
 
     <TextView
         android:id="@+id/tv_transfer"
@@ -66,7 +80,7 @@
         android:paddingBottom="4dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="21dp"
-        android:layout_alignTop="@id/tv_bandcard_name"
+        android:layout_alignTop="@id/tv_account_name"
         android:background="@drawable/text_card_bg"
         android:textSize="14sp"
         android:textColor="@color/white"
