@@ -1,6 +1,7 @@
 package com.example.inspiron.jibei.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,10 +29,20 @@ public class LoginActivity extends AppCompatActivity {
 
     private String userns,passws;
 
+    //保存会话session到本地
+    private SharedPreferences sp;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+
+        sp = getSharedPreferences("Datadefault",MODE_PRIVATE);//创建对象，Datadefault是储存数据的对象名
+        editor = sp.edit();//获取编辑对象
+
 
         username=findViewById(R.id.username_login);
         password=findViewById(R.id.password_login);
@@ -54,7 +65,8 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+//                startActivity(intent);
                 new Thread() {
                     public void run() {
                         login();
@@ -104,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void requestGet(String a,String b) {
         try {
-            String baseUrl = "http://192.168.43.26:8080/login?";
+            String baseUrl = "http://192.168.43.251:8081/login?";
             String requestUrl = baseUrl + "userName=" + a + "&password=" + b;
             // 新建一个URL对象
             URL url = new URL(requestUrl);
@@ -136,6 +148,13 @@ public class LoginActivity extends AppCompatActivity {
 
                 Boolean succeed=jsonObject.getBoolean("succeed");
                 String description=jsonObject.getString("description");
+
+                //注意这里获取服务器返回的头部信息,获取JSESSIONID=XXXXXX的信息
+                final String cookieString=urlConn.getHeaderField("Set-Cookie");
+                //然后保存在本地
+                editor.putString("jsessionid", cookieString);
+                editor.commit();
+
 
                 if(succeed){
                     //登录成功进入主界面

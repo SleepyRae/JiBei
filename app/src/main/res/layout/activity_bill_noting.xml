@@ -6,10 +6,11 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:id="@+id/rootView"
-              tools:context=".ui.BillNoting">
+              tools:context=".ui.BillNoting"
+    >
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="45dp"
-                  android:background="@color/darkslategrey">
+                  android:background="@color/colorPrimary">
         <TextView android:id="@+id/not_cancle_button"
                   android:layout_width="0dp"
                   android:layout_weight="1"

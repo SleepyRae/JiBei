@@ -24,8 +24,12 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity  android:name=".ui.MainActivity"
+            android:label="记呗">
+
+        </activity>
         <activity
-                android:name=".ui.MainActivity"
+            android:name=".ui.LoginActivity"
                 android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -55,9 +59,7 @@
         </activity>
         <activity android:name=".ui.AccountAddActivity">
         </activity>
-        <activity android:name=".ui.LoginActivity">
 
-        </activity>
         <activity android:name=".ui.RegisterActivity">
         </activity>
         <activity android:name=".activities.ChangeItem">

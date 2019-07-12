@@ -7,19 +7,21 @@
 
         <LinearLayout android:id="@+id/mainPage_toolbar"
                       style="@style/page_content_horizontal"
-                      android:layout_weight="1">
+                      android:layout_weight="1"
+            android:background="@color/colorPrimary">
 
 
             <!--空白-->
             <TextView style="@style/toolbar_controls_item"
-                      android:layout_weight="5"/>
+                      android:layout_weight="5"
+                android:background="@color/colorPrimary"/>
 
 
         </LinearLayout>
 
         <LinearLayout
                 style="@style/page_content_horizontal"
-                android:background="@color/darkslategrey"
+                android:background="@color/colorPrimary"
                 android:layout_weight="1.9">
 
             <FrameLayout
@@ -54,7 +56,7 @@
 
         <LinearLayout
                 style="@style/page_content_horizontal"
-                android:background="@color/darkslategrey"
+                android:background="@color/colorPrimary"
                 android:layout_weight="1">
 
             <FrameLayout
