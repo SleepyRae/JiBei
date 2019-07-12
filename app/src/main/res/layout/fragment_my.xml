@@ -37,7 +37,7 @@
                     android:gravity="center_vertical|center"
                     android:layout_marginRight="20dp"
                     android:textSize="17sp"
-                    android:textColor="@color/darkslategrey"
+                    android:textColor="@color/colorPrimary"
                     android:text="记呗——记录你的点点滴滴"
                     android:textStyle="bold"/>
 

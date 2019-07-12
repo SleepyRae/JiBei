@@ -1,5 +1,6 @@
 package com.example.inspiron.jibei.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -26,7 +27,10 @@ import com.example.inspiron.jibei.model.BillItem;
 import com.example.inspiron.jibei.model.BillItemForChart;
 import com.example.inspiron.jibei.model.CountAndMoney;
 import com.example.inspiron.jibei.model.ProvinceBean;
+import com.example.inspiron.jibei.ui.AddBillActivity;
 import com.example.inspiron.jibei.ui.MainActivity;
+import com.example.inspiron.jibei.ui.PieActivity;
+import com.example.inspiron.jibei.ui.PieChartActivity;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -38,7 +42,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-public class ChartFragment extends Fragment {
+public class ChartFragment extends Fragment implements View.OnClickListener{
 
     private View ChartPage;
     private RadioGroup chart_page_payment;
@@ -48,6 +52,7 @@ public class ChartFragment extends Fragment {
     private TextView total_spend_inst,total_spend_number,total_list_inst;
 
     private TextView total_count,total_max;
+    private TextView pie_button;
 
     private RecyclerView listBar;
 
@@ -162,6 +167,10 @@ public class ChartFragment extends Fragment {
         listBar=(RecyclerView)ChartPage.findViewById(R.id.listBar);
         listView=(RecyclerView)ChartPage.findViewById(R.id.recycleView);
 
+        pie_button=(TextView) ChartPage.findViewById(R.id.pie_img);
+        pie_button.setOnClickListener(this);
+
+
         chart_page_payment.check(R.id.spending);
         chart_page_date_bar.check(R.id.chart_date_month);
 
@@ -189,6 +198,7 @@ public class ChartFragment extends Fragment {
 
         MonAndYear=parseHeadIdToMonandYear(b.getHead_id());
 
+        //todo:billitem加入列表 temp与chartlist分别是加的什么
         billItemsTemp.add(b);
         if(billItems.size()>1){
             for (int i = billItems.size()-2; i >=0 ; i--) {
@@ -293,6 +303,18 @@ public class ChartFragment extends Fragment {
                 }
             }
         });
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.pie_img:
+                startActivity(new Intent(getActivity(), PieChartActivity.class));
+                break;
+        }
     }
 
     public  void  updatePage(){

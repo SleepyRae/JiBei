@@ -1,10 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.InfoActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:fancy="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:id="@+id/rootView"
+              android:background="#1000"
+              tools:context=".ui.BillNoting">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="45dp"
+                  android:background="@color/colorPrimary">
+        <TextView android:id="@+id/cancle_button2"
+                  android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:layout_height="match_parent"
+                  android:gravity="center_vertical|center"
+                  android:clickable="true"
+                  style="@style/toolbar"
+                  android:textSize="24sp"
+                  android:text="&#xf104;"/>
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:text="帮助反馈"
+                style="@style/toolbar"
+                android:gravity="center|center_vertical"/>
+        <TextView
+                android:id="@+id/not_deter"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                style="@style/toolbar"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center"
+                android:textSize="20sp"
+                android:clickable="true"
+                />
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+        <EditText
+                android:id="@+id/comment"
+                android:lines="6"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:paddingLeft="10dp"
+                android:background="@null"
+                android:paddingTop="10dp"
+                android:gravity="top"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:textStyle="italic"
+                android:hint="随便提点啥意见吧"/>
+        <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:background="@drawable/set_shape_line" />
+
+        <View android:layout_width="match_parent" android:layout_height="18dp"  />
+
+        <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:background="@drawable/set_shape_line" />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="联系电话"
+                    android:textSize="16dp"
+                    android:padding="18dp"
+                    android:textStyle="bold"
+                    />
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="选填，便于我们联系你"
+                    android:paddingRight="20dp"
+                    android:padding="18dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14dp"
+                    />
+        </LinearLayout>
+        <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:background="@drawable/set_shape_line" />
+
+        <View android:layout_width="match_parent" android:layout_height="18dp"  />
+
+        <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/submit"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="提交"
+                fancy:fb_defaultColor="@color/colorPrimary"
+                fancy:fb_focusColor="@color/darkgrey"
+                fancy:fb_iconPosition="left"
+                fancy:fb_textSize="18dp"
+                fancy:fb_radius="100dp"
+                fancy:fb_fontIconSize="20dp"
+                fancy:fb_textColor="#FFFFFF" />
+
+    </LinearLayout>
+</LinearLayout>

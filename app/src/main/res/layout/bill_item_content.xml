@@ -11,7 +11,7 @@
         android:gravity="center|center_vertical"
         android:layout_gravity="center"
         android:textSize="18sp"
-        android:text="零食"/>
+        android:text="吃喝"/>
     <TextView android:id="@+id/bill_oitem_money_note"
         android:layout_width="0dp"
         android:layout_height="match_parent"

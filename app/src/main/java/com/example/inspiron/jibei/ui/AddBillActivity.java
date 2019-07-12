@@ -1,5 +1,6 @@
 package com.example.inspiron.jibei.ui;
 
+import android.app.DatePickerDialog;
 import android.app.Instrumentation;
 import android.content.ContentValues;
 import android.content.Context;
@@ -26,7 +27,9 @@ import org.litepal.crud.DataSupport;
 import java.util.Calendar;
 import java.util.Date;
 
-public class AddBillActivity extends AppCompatActivity  implements View.OnClickListener{
+public class AddBillActivity extends AppCompatActivity  implements
+        View.OnClickListener,
+        DatePickerDialog.OnDateSetListener{
 
     private TextView billTypeSelected;
 
@@ -50,7 +53,7 @@ public class AddBillActivity extends AppCompatActivity  implements View.OnClickL
 
     private TextView cancle;
     private TextView saveItem;
-    private TextView bill_data;
+    private TextView bill_date;
 
     private String paymentTypeFinal;
     private String moneyTypeSelectedStr;
@@ -83,6 +86,8 @@ public class AddBillActivity extends AppCompatActivity  implements View.OnClickL
 
     private static final String TAG = "AddItemActivity";
 
+    private BillItem billItem = new BillItem();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,8 +100,8 @@ public class AddBillActivity extends AppCompatActivity  implements View.OnClickL
     }
 
     public void init() {
-        eating="吃喝";
-        salary="工资";
+        eating=this.getResources().getString(R.string.eating);
+        salary=this.getResources().getString(R.string.salary);
 
         create_date = new Date();
 
@@ -108,7 +113,8 @@ public class AddBillActivity extends AppCompatActivity  implements View.OnClickL
         bill_note_content = (EditText) findViewById(R.id.bill_note_content);
 
 
-        bill_data = (TextView) findViewById(R.id.bill_date);
+        bill_date = (TextView) findViewById(R.id.bill_date);
+        bill_date.setOnClickListener(this);
         billTypeSelected = (TextView) findViewById(R.id.bill_type_selected);
 
         moneyTypeSpend = (RadioGroup) findViewById(R.id.radiogroup_types_money_spend);
@@ -213,12 +219,13 @@ public class AddBillActivity extends AppCompatActivity  implements View.OnClickL
         }
 
 
-        bill_data.setText(MonAndDay);
+        bill_date.setText(MonAndDay);
         //控制软键盘
         inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 //        inputMethodManager.toggleSoftInput(InputMethodManager.HIDE_NOT_ALWAYS,0);
 
     }
+
 
     public void initKeyboard() {
         button_0 = (Button) findViewById(R.id.button_0);
@@ -410,10 +417,29 @@ public class AddBillActivity extends AppCompatActivity  implements View.OnClickL
             case R.id.button_del:
                 performKeyDown(KeyEvent.KEYCODE_DEL);
                 break;
+            case R.id.bill_date:
+                Calendar calendar=Calendar.getInstance();
+                DatePickerDialog dialog = new DatePickerDialog(this,this,
+                        calendar.get(Calendar.YEAR),
+                        calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH));
+                dialog.show();
             default:
                 break;
         }
     }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        year-=1900;
+        int month1=month+1;
+        String desc=String.format("%d月%d日",month1,dayOfMonth);
+        bill_date.setText(desc);
+        create_date = new Date(year,month,dayOfMonth);
+        billItem.setCreate_date(create_date);
+        parseDateToMonAndDay(create_date);
+    }
+
 
     //模拟键盘输入
     public void performKeyDown(final int keyCode) {
@@ -445,7 +471,7 @@ public class AddBillActivity extends AppCompatActivity  implements View.OnClickL
 
 
         if(itemCurrentId!=-1){
-            BillItem billItem = new BillItem();
+
             String time=getIntent.getStringExtra("clickedItemDate");
             billItem.setHead_id(Integer.parseInt(getIntent.getStringExtra("clickedItemDate")));
             billItem.setMoney(money);
@@ -477,7 +503,7 @@ public class AddBillActivity extends AppCompatActivity  implements View.OnClickL
             startActivity(new Intent(AddBillActivity.this,MainActivity.class));
         }
         else {
-            BillItem billItem = new BillItem();
+
             billItem.setHead_id(headId);
             billItem.setUser_id(user_id);
             billItem.setMoney(money);
