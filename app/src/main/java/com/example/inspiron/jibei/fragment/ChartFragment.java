@@ -189,6 +189,7 @@ public class ChartFragment extends Fragment {
 
         MonAndYear=parseHeadIdToMonandYear(b.getHead_id());
 
+        //todo:billitem加入列表 temp与chartlist分别是加的什么
         billItemsTemp.add(b);
         if(billItems.size()>1){
             for (int i = billItems.size()-2; i >=0 ; i--) {
