@@ -100,8 +100,8 @@ public class AddBillActivity extends AppCompatActivity  implements
     }
 
     public void init() {
-        eating="吃喝";
-        salary="工资";
+        eating=this.getResources().getString(R.string.eating);
+        salary=this.getResources().getString(R.string.salary);
 
         create_date = new Date();
 
