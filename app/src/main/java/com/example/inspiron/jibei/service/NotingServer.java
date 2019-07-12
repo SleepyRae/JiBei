@@ -10,6 +10,7 @@ import android.util.Log;
 import com.example.inspiron.jibei.R;
 import com.example.inspiron.jibei.ui.AddBillActivity;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
@@ -44,8 +45,22 @@ public class NotingServer extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "onStartCommand: ");
-        startRemind();
+       // startRemind();
+        myTimer();
         return super.onStartCommand(intent, flags, startId);
+    }
+
+    public void myTimer() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+
+            }
+        }).start();//开启线程
+    }
+
+    public void noting() {
     }
 
     @Override
@@ -61,9 +76,9 @@ public class NotingServer extends Service {
 
         hour= Integer.parseInt(pref.getString("currentHour","21"));
         minute= Integer.parseInt(pref.getString("currentMinute","00"));
-        content=pref.getString("currentNoteContent","松下问童子,文体两开花");
+        content=pref.getString("currentNoteContent","记呗");
         if(content.equals("")){
-            content="松下问童子,文体两开花";
+            content="记呗";
         }
 
         long period = 24*60*60*1000; //24小时一个周期
@@ -100,7 +115,7 @@ public class NotingServer extends Service {
                             .setSmallIcon(R.mipmap.ic_launcher)
                             .setTicker("tick") //测试通知栏标题
                             .setContentText(content) //下拉通知啦内容
-                            .setContentTitle("CuckooBill's Notification!!!")//下拉通知栏标题
+                            .setContentTitle("JiBei's Notification!!!")//下拉通知栏标题
                             .setAutoCancel(true)
                             .setDefaults(Notification.DEFAULT_ALL)
                             .setContentIntent(pendingIntent)
@@ -112,7 +127,7 @@ public class NotingServer extends Service {
                     Notification notification = new NotificationCompat.Builder(NotingServer.this)
                             .setSmallIcon(R.mipmap.ic_launcher)
                             .setTicker("tick") //测试通知栏标题
-                            .setContentText("CuckooBill's Notification!!!") //下拉通知啦内容
+                            .setContentText("JiBei's Notification!!!") //下拉通知啦内容
                             .setContentTitle(content)//下拉通知栏标题
                             .setAutoCancel(true)
                             .setDefaults(Notification.DEFAULT_ALL)
@@ -121,6 +136,7 @@ public class NotingServer extends Service {
 
                     manager.notify((int) System.currentTimeMillis(), notification);
                 }
+
             }
         },delay, period);
     }

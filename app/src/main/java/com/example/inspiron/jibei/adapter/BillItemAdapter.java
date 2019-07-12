@@ -171,16 +171,16 @@ public class BillItemAdapter extends BaseAdapter implements StickyListHeadersAda
         if(!billItemChoice.isPayment_type()){
             switch (moneyType){
                 case "吃喝":
-                    viewHolder.billOitemMoneyType.setText("吃喝");
+                    viewHolder.billOitemMoneyType.setText(context.getString(R.string.eating));
                     break;
                 case "娱乐":
-                    viewHolder.billOitemMoneyType.setText("娱乐");
+                    viewHolder.billOitemMoneyType.setText(context.getString(R.string.play));
                     break;
                 case "购物":
-                    viewHolder.billOitemMoneyType.setText("购物");
+                    viewHolder.billOitemMoneyType.setText(context.getString(R.string.shop));
                     break;
-                case "其他":
-                    viewHolder.billOitemMoneyType.setText("其他");
+                case "杂项":
+                    viewHolder.billOitemMoneyType.setText(context.getString(R.string.otherSpend));
                     break;
                 default:
                     break;
@@ -188,16 +188,16 @@ public class BillItemAdapter extends BaseAdapter implements StickyListHeadersAda
         }else {
             switch (moneyType){
                 case "工资":
-                    viewHolder.billOitemMoneyType.setText("工资");
+                    viewHolder.billOitemMoneyType.setText(context.getString(R.string.salary));
                     break;
                 case "红包":
-                    viewHolder.billOitemMoneyType.setText("红包");
+                    viewHolder.billOitemMoneyType.setText(context.getString(R.string.redMoney));
                     break;
                 case "理财":
-                    viewHolder.billOitemMoneyType.setText("理财");
+                    viewHolder.billOitemMoneyType.setText(context.getString(R.string.finance));
                     break;
                 case "其他":
-                    viewHolder.billOitemMoneyType.setText("其他");
+                    viewHolder.billOitemMoneyType.setText(context.getString(R.string.otherIncome));
                     break;
                 default:
                     break;
